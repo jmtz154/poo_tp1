@@ -1,0 +1,54 @@
+﻿using System;
+
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Precio: ");
+        int precio = int.Parse(Console.ReadLine());
+        Console.Write("Pago: ");
+        int pago = int.Parse(Console.ReadLine());
+        Console.WriteLine();
+
+        int[] denominaciones = { 100, 50, 20, 10, 5, 2, 1 };
+        int cambio = pago - precio;
+
+        if (cambio < 0)
+        {
+            Console.WriteLine("El pago es insuficiente.");
+            return;
+        }
+
+        Console.WriteLine($"Cambio a devolver: {cambio}");
+
+        for (int i = 0; i < denominaciones.Length; i++)
+        {
+            int cantidadBilletes = cambio / denominaciones[i]; // como se declara "int", aunque la division tenga decimales se guarda solo la parte entera.
+            if (cantidadBilletes > 0)
+            {
+                Console.WriteLine($"Billetes de {denominaciones[i]}: {cantidadBilletes}");
+                cambio %= denominaciones[i];
+            }
+        }
+        // NOTAS
+        //
+        //
+        //
+        ////int x01 = 3.333333333;
+        //Console.WriteLine("int x01 = 3.333333333  => da ERROR");
+        //int x01 = 10 / 3;
+        //Console.WriteLine("int x01 = 10/3  => da: " + x01);
+        //double x02 = 3.333333333;
+        //Console.WriteLine("double x02 = 3.333333333  => da: " + x02);
+        //double x03 = 10 / 3;
+        //Console.WriteLine("double x03 = 10/3  => da: " + x03);
+        //double x04 = 10 / 3.0;
+        //Console.WriteLine("double x04 = 10/3.0  => da: " + x04);
+        //
+        //
+        //
+        //
+        //
+    }
+}
